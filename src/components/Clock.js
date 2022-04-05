@@ -8,11 +8,11 @@ function Clock(props){
     setDate(new Date());
   }
 
-  //Mount
-  useEffect(() => { console.log("Mount useEffect: " + props.origen);
+  //After Render!
+  useEffect(() => { console.log("useEffect: " + props.origen);
     const timerId = setInterval(refreshClock, 1000);
     //Unmount
-    return function cleanup() {console.log("Unmount useEffect: " + props.origen)
+    return function cleanup() {console.log("cleanup useEffect: " + props.origen)
       clearInterval(timerId);
     };
   }, []);
