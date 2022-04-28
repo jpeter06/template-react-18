@@ -1,6 +1,7 @@
 import React from "react";
 import DataService from "../../services/data.service";
 import Temperature2 from "./Temperature2";
+import Temperature from "./Temperature";
 import WeatherImage2 from "./WeatherImage2";
 import './Weather2.scss';
 
@@ -53,7 +54,7 @@ class Weather2 extends React.Component<{}, { date: Date, city:string, weather:an
                     <WeatherImage2 className="margintopAuto" icon={wdata.icon} 
                                 description={wdata.description} 
                                 main={wdata.main}></WeatherImage2>
-                    <Temperature2 temp={this.state.weather?.main.temp}></Temperature2>
+                    <Temperature temp={this.state.weather?.main.temp}></Temperature>
                 </div>;
           } else {
             cuerpo = <span>Empty</span>;

@@ -18,7 +18,7 @@ function Clock(props){
   }, []);
 
   return (
-    <span class={props.clase}>
+    <span className={props.clase}>
       {date.toLocaleTimeString()} 
     </span>
   );
