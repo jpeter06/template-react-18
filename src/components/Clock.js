@@ -9,16 +9,16 @@ function Clock(props){
   }
 
   //After Render!
-  useEffect(() => { console.log("useEffect: " + props.origen);
+  useEffect(() => { 
     const timerId = setInterval(refreshClock, 1000);
     //Unmount
-    return function cleanup() {console.log("cleanup useEffect: " + props.origen)
+    return function cleanup() {
       clearInterval(timerId);
     };
   }, []);
 
   return (
-    <span>
+    <span class={props.clase}>
       {date.toLocaleTimeString()} 
     </span>
   );

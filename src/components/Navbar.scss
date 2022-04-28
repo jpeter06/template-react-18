@@ -1,7 +1,17 @@
 nav{
     display:flex;
+    justify-content: center;
+    align-items: center;
     font-size: 18px;
-    background-color: #eee;
+    height: 2.4rem;
+    background-color: var(--main-background);
     gap:5px;
-    .active { color: red;}
+    padding-left: 10px;
+    padding-right: 10px;
+    .active { color: rgb(57, 57, 57);}
+    
+    a{
+        text-decoration: none;
+        color: rgb(151, 151, 151);
+    }
 } 

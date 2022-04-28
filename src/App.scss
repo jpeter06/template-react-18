@@ -1,0 +1,83 @@
+html, body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  padding:0px;
+  margin:0px;
+}
+
+/** THEMES **/
+body {
+  --main-background: #b6cbbc;
+}
+
+body .dark{
+  --main-background: #d5d5d5;
+}
+
+/** ELEMENTS **/
+#root{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.page{
+  flex-grow: 2;
+  flex-direction: column;
+  display:flex;
+  background-color: var(--main-background);
+  color: rgba($color: #000000, $alpha: 0.4);
+  overflow-y:auto;
+}
+
+.bigTitle{
+  font-size: min(12vw, 18vh);
+  font-weight: bold;
+}
+.midTitle{
+  font-size: 3vw;
+  font-weight: bold;
+  color: rgba($color: #000000, $alpha: 0.4)
+}
+
+/*** COLOR ***/
+.titleColor{
+  color:white;
+}
+.dataColor{
+  color:white;
+}
+
+/** Position **/
+.flexContentCenter{
+  align-content: center;
+  align-items: center;
+  justify-content:center;
+}
+.flexStart{
+  align-self: flex-start;
+}
+.flexStretch{
+  align-items: stretch;
+}
+.hcenter{
+  text-align: center;
+}
+.vflex{
+  display: flex;
+  flex-direction: column;
+}
+.flexGrow1{
+  flex-grow: 1;
+}
+.flexGrow2{
+  flex-grow: 21;
+}
+.marginLeftAuto{
+  margin-left: auto;
+}
+
+.margintopAuto {
+  margin-top: auto;
+}
