@@ -8,7 +8,7 @@ export interface WeatherData {
     className:string;
   }
 
-const WeatherImage2: React.FC<WeatherData> = (props) => {
+const WeatherImage: React.FC<WeatherData> = (props) => {
     const [data, setData] = useState(props);
         const imgTransition = useTransition(data, {
           from: {  opacity: 0  , transform: 'translate(64px, 0px)'},
@@ -17,7 +17,7 @@ const WeatherImage2: React.FC<WeatherData> = (props) => {
         })
     
         const textTransition = useTransition(data, {
-          from: {  opacity: 0  , transform: 'translate(24px, 0px)'},
+          from: {  opacity: 0  , transform: 'translate(20px, 0px)'},
           enter: { opacity: 1 , transform: 'translate(0px, 0px)'},
           leave: { opacity: 0 , transform: 'translate(0px, 20px)'}
         })
@@ -52,4 +52,4 @@ const WeatherImage2: React.FC<WeatherData> = (props) => {
 
 }
 
-export default WeatherImage2;
+export default WeatherImage;

@@ -1,15 +1,14 @@
 import React from "react";
 import DataService from "../../services/data.service";
-import Temperature2 from "./Temperature2";
 import Temperature from "./Temperature";
-import WeatherImage2 from "./WeatherImage2";
-import './Weather2.scss';
+import WeatherImage from "./WeatherImage";
+import './Weather.scss';
 
 var today  = new Date();
 
 console.log(today.toLocaleDateString("en-US")); // 9/17/2016
 
-class Weather2 extends React.Component<{}, { date: Date, city:string, weather:any,
+class Weather extends React.Component<{}, { date: Date, city:string, weather:any,
                                              lat:number, lon:number }> {
 
     options = { dateStyle: 'short' } as const;
@@ -18,7 +17,7 @@ class Weather2 extends React.Component<{}, { date: Date, city:string, weather:an
         super(props);
         this.state = {
             date: new Date(),
-            city: '',
+            city: '...',
             weather:null,
             lat:35,
             lon:139
@@ -51,13 +50,13 @@ class Weather2 extends React.Component<{}, { date: Date, city:string, weather:an
                     &nbsp;&nbsp;
                     sunset:{this.formater.format(new Date(this.state.weather?.sys.sunset * 1000))}</div> 
                     
-                    <WeatherImage2 className="margintopAuto" icon={wdata.icon} 
+                    <WeatherImage className="margintopAuto" icon={wdata.icon} 
                                 description={wdata.description} 
-                                main={wdata.main}></WeatherImage2>
+                                main={wdata.main}></WeatherImage>
                     <Temperature temp={this.state.weather?.main.temp}></Temperature>
                 </div>;
           } else {
-            cuerpo = <span>Empty</span>;
+            cuerpo = <div className="vflex flexGrow1 flexContentCenter">Empty</div>;
           }
         return (
             <div  className="page flexContentCenter flexStretch">
@@ -77,4 +76,4 @@ class Weather2 extends React.Component<{}, { date: Date, city:string, weather:an
     }
 }
 
-export default Weather2;
+export default Weather;
