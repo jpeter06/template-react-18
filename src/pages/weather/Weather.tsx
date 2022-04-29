@@ -62,13 +62,13 @@ class Weather extends React.Component<{}, { date: Date, city:string, weather:any
             <div  className="page flexContentCenter flexStretch">
                 <h1 className="bigTitle hcenter titleColor">{this.state.city}</h1>
                 <div className="hcenter">
-                    <button onClick={() => this.updateMaxMin()}>local</button>
-                    <button onClick={() => this.updateMaxMin('Paris')}>Paris</button>
-                    <button onClick={() => this.updateMaxMin('Mehamn')}>Mehamn</button>
-                    <button onClick={() => this.updateMaxMin('Málaga')}>Málaga</button>
-                    <button onClick={() => this.updateMaxMin('Madrid')}>Madrid</button>
-                    <button onClick={() => this.updateMaxMin('Barcelona')}>Barcelona</button>
-                    <button onClick={() => this.updateMaxMin('Valencia')}>Valencia</button>
+                    <button className="mainButton" onClick={() => this.updateMaxMin()}>local</button>
+                    <button className="mainButton" onClick={() => this.updateMaxMin('Paris')}>Paris</button>
+                    <button className="mainButton" onClick={() => this.updateMaxMin('Mehamn')}>Mehamn</button>
+                    <button className="mainButton" onClick={() => this.updateMaxMin('Málaga')}>Málaga</button>
+                    <button className="mainButton" onClick={() => this.updateMaxMin('Madrid')}>Madrid</button>
+                    <button className="mainButton" onClick={() => this.updateMaxMin('Barcelona')}>Barcelona</button>
+                    <button className="mainButton" onClick={() => this.updateMaxMin('Valencia')}>Valencia</button>
                 </div>
                 {cuerpo}
             </div>

@@ -4,10 +4,10 @@
   display: none;
 }
 .navbar {
-    box-shadow: 0px 5px 10px 0px #aaa;
+    /* box-shadow: 0px 5px 10px 0px #aaa;*/
     position: fixed;
     width: 100%;
-    background: #fff;
+    background: transparent;
     color: #000;
     height: 50px;
     z-index: 12;
@@ -34,13 +34,18 @@
   
   .menu-items a {
     text-decoration: none;
-    color: #444;
+    color: var(--main-color);
     font-weight: 500;
     transition: color 0.3s ease-in-out;
   }
   
   .menu-items a:hover {
-    color: #117964;
+    color: var(--main-hover-color);
+    transition: color 0.3s ease-in-out;
+  }
+
+  .navbar .hamburger-lines:hover  .line{
+    background-color: var(--main-hover-color);
     transition: color 0.3s ease-in-out;
   }
 
@@ -117,7 +122,7 @@
       transform: translate(-120%);
       display: flex;
       flex-direction: column;
-      background: #eee;
+      background: #eeeeee9e;
       /*
       margin-left: -40px;
       padding-left: 50px;

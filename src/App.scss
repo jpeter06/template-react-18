@@ -1,68 +1,29 @@
 
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-html, body{
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  padding:0px;
-  margin:0px;
-}
+*,*::after,*::before {  box-sizing: border-box;  padding: 0;  margin: 0;}
+html, body{  width:100%;  height:100%;  overflow:hidden;  padding:0px;  margin:0px;}
 
 /** THEMES **/
 /** body && themes colors **/
 body {
-  --main-background: #b6cbbc;
-  --main-color: #ffffff;
-  --main-transp-color: #ffffffd9;
+  --main-background: #b6cbbc;  --main-color: #ffffff; --main-hover-color: #87fd9c;   --main-transp-color: #ffffffd9;
+
+}
+
+body .dark, #root.dark{  --main-background: #d5d5d5;  --main-color: #ffffff; --main-hover-color: #87fd9c;  --main-transp-color: #ffffffab;}
+body .clear, #root.clear{  --main-background: #212121;  --main-color: #000000; --main-hover-color: #363636;   --main-transp-color: ##00000070;}
+
+/** ELEMENTS **/
+#root{  height: 100%;  display: flex;  flex-direction: column;
   background-image: url("./images/málaga.jpg");
   background-size: cover;
   color: var(--main-color);
-  background-color: var(--main-background);
-}
-
-body .dark{
-  --main-background: #d5d5d5;
-  --main-color: #ffffff;
-  --main-transp-color: #ffffffd9;
-}
-
-body .clear{
-  --main-background: #212121;
-  --main-color: #000000;
-  --main-transp-color: #676666d9;
-}
-
-/** ELEMENTS **/
-#root{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
+  background-color: var(--main-background);}
 .navspace{ height:50px; }
+.page{  flex-grow: 2;  flex-direction: column;  display:flex;  overflow-y:auto;}
 
-.page{
-  flex-grow: 2;
-  flex-direction: column;
-  display:flex;
-  overflow-y:auto;
-}
-
-.bigTitle{
-  font-size: min(12vw, 18vh);
-  font-weight: bold;
-}
-.midTitle{
-  font-size: 3vw;
-  font-weight: bold;
-}
-
+.bigTitle{  font-size: min(12vw, 18vh);  font-weight: bold; color: var(--main-transp-color);}
+.midTitle{  font-size: 3vw;  font-weight: bold;}
+.mainButton { background: transparent;  color: inherit;  border: none;  padding: 4px; cursor: pointer;}
 /*** COLOR ***/
 .mainText{color: var(--main-color);}
 .mainBackgroundColor{color: var(--main-background);}
@@ -76,34 +37,12 @@ body .clear{
 
 /** Position **/
 .textCenter{ text-align: center;}
-.flexContentCenter{
-  align-content: center;
-  align-items: center;
-  justify-content:center;
-}
-.flexStart{
-  align-self: flex-start;
-}
-.flexStretch{
-  align-items: stretch;
-}
-.hcenter{
-  text-align: center;
-}
-.vflex{
-  display: flex;
-  flex-direction: column;
-}
-.flexGrow1{
-  flex-grow: 1;
-}
-.flexGrow2{
-  flex-grow: 21;
-}
-.marginLeftAuto{
-  margin-left: auto;
-}
-
-.margintopAuto {
-  margin-top: auto;
-}
+.flexContentCenter{  align-content: center;  align-items: center;  justify-content:center;}
+.flexStart{  align-self: flex-start;}
+.flexStretch{  align-items: stretch;}
+.hcenter{  text-align: center;}
+.vflex{  display: flex;  flex-direction: column;}
+.flexGrow1{  flex-grow: 1;}
+.flexGrow2{  flex-grow: 21;}
+.marginLeftAuto{  margin-left: auto;}
+.margintopAuto {  margin-top: auto;}
