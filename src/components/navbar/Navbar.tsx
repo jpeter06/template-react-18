@@ -29,22 +29,22 @@ export default class Navbar extends Component {
   render() {
     return(
       <nav className="navbar" >
-      <div className="navbar-container container">
-          <input type="checkbox"  onChange={()=>{console.log("onChange2")}} checked={this.state.checked} />
-          <div className="hamburger-lines" onClick={this.showHide}>
-              <span className="line line1"></span>
-              <span className="line line2"></span>
-              <span className="line line3"></span>
-          </div>
-          <ul className="menu-items" ref={this.wrapperRef}>
-            <li><NavLink to="/" onClick={this.showHide}>Home</NavLink></li>
-            <li><NavLink to="/page1"  onClick={this.showHide}>Page1</NavLink></li>
-            <li><NavLink to="/weather"  onClick={this.showHide}>Weather</NavLink></li>
-            <li><NavLink to="/about" onClick={this.showHide}>About</NavLink></li>
-          </ul>
-          <div className="fillAll" onClick={this.showHide}></div>
-      </div>
-    </nav>
+        <div className="navbar-container container">
+            <input type="checkbox"  onChange={()=>{console.log("onChange2")}} checked={this.state.checked} />
+            <div className="hamburger-lines" onClick={this.showHide}>
+                <span className="line figColor figShadow line1"></span>
+                <span className="line figColor figShadow line2"></span>
+                <span className="line figColor figShadow line3"></span>
+            </div>
+            <ul className="menu-items" ref={this.wrapperRef}>
+              <li><NavLink to="/" onClick={this.showHide}>Home</NavLink></li>
+              <li><NavLink to="/page1"  onClick={this.showHide}>Page1</NavLink></li>
+              <li><NavLink to="/weather"  onClick={this.showHide}>Weather</NavLink></li>
+              <li><NavLink to="/about" onClick={this.showHide}>About</NavLink></li>
+            </ul>
+            <div className="fillAll" onClick={this.showHide}></div>
+        </div>
+      </nav>
     )
   }
 }

@@ -15,12 +15,27 @@ html, body{
 }
 
 /** THEMES **/
+/** body && themes colors **/
 body {
   --main-background: #b6cbbc;
+  --main-color: #ffffff;
+  --main-transp-color: #ffffffd9;
+  background-image: url("./images/málaga.jpg");
+  background-size: cover;
+  color: var(--main-color);
+  background-color: var(--main-background);
 }
 
 body .dark{
   --main-background: #d5d5d5;
+  --main-color: #ffffff;
+  --main-transp-color: #ffffffd9;
+}
+
+body .clear{
+  --main-background: #212121;
+  --main-color: #000000;
+  --main-transp-color: #676666d9;
 }
 
 /** ELEMENTS **/
@@ -30,14 +45,12 @@ body .dark{
   flex-direction: column;
 }
 
-.navspace{ height:50px; background-color: var(--main-background);}
+.navspace{ height:50px; }
 
 .page{
   flex-grow: 2;
   flex-direction: column;
   display:flex;
-  background-color: var(--main-background);
-  color: rgba($color: #000000, $alpha: 0.4);
   overflow-y:auto;
 }
 
@@ -48,18 +61,21 @@ body .dark{
 .midTitle{
   font-size: 3vw;
   font-weight: bold;
-  color: rgba($color: #000000, $alpha: 0.4)
 }
 
 /*** COLOR ***/
-.titleColor{
-  color:white;
-}
-.dataColor{
-  color:white;
-}
+.mainText{color: var(--main-color);}
+.mainBackgroundColor{color: var(--main-background);}
+.mainTitle{color: var(--main-transp-color);}
+.mainData{color: var(--main-color);}
+.figColor{background-color: var(--main-color);}
+
+/** shadow **/
+.figShadow {box-shadow: 0px 0px 2px  rgb(0, 0, 0);}
+.textShadow{ text-shadow: 1px 1px 1px rgb(0 0 0 / 54%);}
 
 /** Position **/
+.textCenter{ text-align: center;}
 .flexContentCenter{
   align-content: center;
   align-items: center;

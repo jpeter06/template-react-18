@@ -15,7 +15,7 @@ const Temperature: React.FC<TempProps> = (prop) => {
 
   return (
       <>
-    <animated.div className="temperatura margintopAuto dataColor flexStart">
+    <animated.div className="temperatura margintopAuto dataColor textShadow flexStart">
         {props.val.interpolate(val => Math.floor(val) + 'º')}
     </animated.div>
     </>

@@ -80,7 +80,6 @@
       height: 4px;
       width: 100%;
       border-radius: 10px;
-      background: #333;
     }
   
     .navbar-container .hamburger-lines .line1 {
@@ -145,13 +144,13 @@
     }
     .navbar-container input[type="checkbox"]:checked ~ .menu-items {
         transform: translateX(0);
-      }
+    }
     
-      .navbar-container input[type="checkbox"]:checked ~ .fillAll {
+    .navbar-container input[type="checkbox"]:checked ~ .fillAll {
         transform: translateX(0);
-      }
+    }
     
-        .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
       transform: rotate(35deg);
     }
   
