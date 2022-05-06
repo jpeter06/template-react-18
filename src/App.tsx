@@ -18,7 +18,8 @@ const App: React.FC = () => {
       <Navbar />
       <div className="navspace"></div>
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="" element={<Weather2/>} />
+        <Route path="/home" element={<Home/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/weather" element={<Weather2/>} />        
         <Route path="*" element={<NotFound/>} />

@@ -37,7 +37,7 @@ export default class Navbar extends Component {
                 <span className="line figColor figShadow line3"></span>
             </div>
             <ul className="menu-items" ref={this.wrapperRef}>
-              <li><NavLink to="/" onClick={this.showHide}>Home</NavLink></li>
+              <li><NavLink to="/home" onClick={this.showHide}>Home</NavLink></li>
               <li><NavLink to="/page1"  onClick={this.showHide}>Page1</NavLink></li>
               <li><NavLink to="/weather"  onClick={this.showHide}>Weather</NavLink></li>
               <li><NavLink to="/about" onClick={this.showHide}>About</NavLink></li>
