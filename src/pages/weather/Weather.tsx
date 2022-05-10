@@ -3,12 +3,15 @@ import DataService from "../../services/data.service";
 import Temperature from "../../components/weather/Temperature";
 import WeatherImage from "../../components/weather/WeatherImage";
 import './Weather.scss';
+import { DailyObj } from "../../objects/DailyObj";
+import { OneCallObj } from "../../objects/OneCallObj";
+import WeatherDays from "../../components/weather/weatherDays";
 
 var today  = new Date();
 
 console.log(today.toLocaleDateString("en-US")); // 9/17/2016
 
-class Weather extends React.Component<{}, { date: Date, city:string, weather:any,
+class Weather extends React.Component<{}, { date: Date, city:string, weather:any, weekData?:OneCallObj,
                                              lat:number, lon:number, controller?:AbortController
                                              , controller2?:AbortController }> {
 
@@ -21,8 +24,9 @@ class Weather extends React.Component<{}, { date: Date, city:string, weather:any
             date: new Date(),
             city: '...',
             weather:null,
-            lat:35,
-            lon:139,
+            weekData:undefined,
+            lat:40.4165,
+            lon:-3.70256,
             controller: undefined,
             controller2: undefined
           };
@@ -78,7 +82,8 @@ class Weather extends React.Component<{}, { date: Date, city:string, weather:any
         const req = DataService.oneCallWeather(lat, lon, controller2.signal) ;
         req.then(res => {            
                 this.cancelController2(); 
-               console.log("oneCallWeather received!")
+               console.log("oneCallWeather received!",res.data);
+               this.setState({weekData:res.data});
             })
             .catch(function(e) { 
                 if(!controller2.signal.aborted) 
@@ -93,9 +98,19 @@ class Weather extends React.Component<{}, { date: Date, city:string, weather:any
                     weather: res.data})
     }
 
+    getWeekBody(){
+        const weekData = this.state.weekData;
+        let weeDataBody;
+        if(weekData){ console.log("getWeekBody found!!")
+            return <WeatherDays  data={weekData}></WeatherDays>;
+        }else{
+            return "";
+        }
+    }
 
     render() {
         const wdata = this.state.weather?.weather[0];
+        const weekDataBody = this.getWeekBody();
         let cuerpo;
         if (wdata) {
             cuerpo = 
@@ -103,7 +118,7 @@ class Weather extends React.Component<{}, { date: Date, city:string, weather:any
                     <div  className="hcenter">sunrise:{this.formater.format(new Date(this.state.weather?.sys.sunrise * 1000))}
                     &nbsp;&nbsp;
                     sunset:{this.formater.format(new Date(this.state.weather?.sys.sunset * 1000))}</div> 
-                    
+                    {weekDataBody}
                     <WeatherImage className="margintopAuto" icon={wdata.icon} 
                                 description={wdata.description} 
                                 main={wdata.main}></WeatherImage>
@@ -112,6 +127,8 @@ class Weather extends React.Component<{}, { date: Date, city:string, weather:any
           } else {
             cuerpo = <div className="vflex flexGrow1 flexContentCenter">Empty</div>;
           }
+
+        
         return (
             <div  className="page flexContentCenter flexStretch">
                 <h1 className="bigTitle hcenter titleColor">{this.state.city}</h1>
@@ -122,7 +139,7 @@ class Weather extends React.Component<{}, { date: Date, city:string, weather:any
                     <button className="mainButton" onClick={() => this.updateMaxMin('Málaga')}>Málaga</button>
                     <button className="mainButton" onClick={() => this.updateMaxMin('Madrid')}>Madrid</button>
                     <button className="mainButton" onClick={() => this.updateMaxMin('Barcelona')}>Barcelona</button>
-                    <button className="mainButton" onClick={() => this.updateMaxMin('Valencia')}>Valencia</button>
+                    <button className="mainButton" onClick={() => this.updateMaxMin('Tokio')}>Tokio</button>
                 </div>
                 {cuerpo}
             </div>
