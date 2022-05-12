@@ -16,7 +16,7 @@ import background from './images/malaga.jpg';
 const App: React.FC = () => {
   return (   
     <BrowserRouter>
-      <div className="root" style={{ backgroundImage:  `url(${require("./images/malaga.jpg")})` }}>
+      <div className="root" style={{ backgroundImage:  `url(.${background})` }}>
         <Navbar />
         <div className="navspace"></div>
         <Routes>
