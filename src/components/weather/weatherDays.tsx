@@ -1,7 +1,7 @@
 import  React from 'react';
 import { OneCallObj } from '../../objects/OneCallObj';
 import DailyWeather from './DailyWeather';
-
+import './WeatherDays.scss';
   
 interface MyProps  {
     data: OneCallObj
@@ -10,7 +10,7 @@ interface MyProps  {
 const WeatherDays: React.FC<MyProps> = (props) => {
 
     return (
-        <div style={{ overflow: 'hidden', width: '100%',height: '120px'}}>
+        <div className="WeatherDays" style={{ overflow: 'hidden', width: '100%',height: '120px'}}>
           <div style={{ display: 'flex', overflowX: 'auto',  overflowY: 'hidden',
            width: '100%', paddingBottom: '15px'}}>
                {props.data.daily.map((data) => (

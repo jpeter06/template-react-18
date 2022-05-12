@@ -44,7 +44,7 @@ const DailyWeather: React.FC<WeatherImageSmallProps> = (props) => {
   );
 
   return (             
-            <div style={{ position: 'relative', flexShrink: 0,
+            <div className="dailyWeather" style={{ position: 'relative', flexShrink: 0,
               width: props.size? props.size : 140,display: 'inline-flex',
               height: props.size? props.size : 140 }}>
               {animatedImage}

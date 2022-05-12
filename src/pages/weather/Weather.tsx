@@ -5,7 +5,7 @@ import WeatherImage from "../../components/weather/WeatherImage";
 import './Weather.scss';
 import { DailyObj } from "../../objects/DailyObj";
 import { OneCallObj } from "../../objects/OneCallObj";
-import WeatherDays from "../../components/weather/weatherDays";
+import WeatherDays from "../../components/weather/WeatherDays";
 
 const today  = new Date();
 
