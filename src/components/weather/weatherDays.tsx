@@ -1,7 +1,7 @@
-import  React, { useState, useEffect } from 'react';
-import { useTransition, animated } from 'react-spring';
+import  React from 'react';
 import { OneCallObj } from '../../objects/OneCallObj';
-import WeatherImage from './WeatherImage';
+import DailyWeather from './DailyWeather';
+
   
 interface MyProps  {
     data: OneCallObj
@@ -10,13 +10,14 @@ interface MyProps  {
 const WeatherDays: React.FC<MyProps> = (props) => {
 
     return (
-        <div style={{ display: 'flex' }}>
-               {props.data.daily.map(({ weather }) => (
-               <WeatherImage className="margintopAuto" size={100} icon={weather[0].icon} 
-                                description={weather[0].description} 
-                                main={weather[0].main}></WeatherImage>
+        <div style={{ overflow: 'hidden', width: '100%',height: '110px'}}>
+          <div style={{ display: 'flex', overflowX: 'auto',  overflowY: 'hidden', width: '100%', paddingBottom: '15px'}}>
+               {props.data.daily.map((data) => (
+               <DailyWeather className="margintopAuto" size={100} data={data}></DailyWeather>
                 ))} 
-        </div>)
+          </div>
+        </div>
+    )
 
 }
     

@@ -1,16 +1,14 @@
 import  React, { useState, useEffect } from 'react';
 import { useTransition, animated } from 'react-spring';
+import { DailyObj } from '../../objects/DailyObj';
 
- interface WeatherData {
-    main: string;
-    description:string;
-    icon:string;
-    className:string;
-    size?:number;
-  }
-
-const WeatherImage: React.FC<WeatherData> = (props) => {
-    const [data, setData] = useState(props);
+export interface WeatherImageSmallProps {
+  data: DailyObj;
+  size?:number;
+  className:String;
+}
+const DailyWeather: React.FC<WeatherImageSmallProps> = (props) => {
+    const [data, setData] = useState(props.data);
     const imgTransition = useTransition(data, {
       from: {  opacity: 0  , transform: 'translate(64px, 0px)'},
       enter: { opacity: 1 , transform: 'translate(0px, 0px)'},
@@ -24,21 +22,22 @@ const WeatherImage: React.FC<WeatherData> = (props) => {
     })
     
     useEffect(() => {
-        if(!data || data.icon !== props.icon){//Solo animamos si cambio de datos.
-          setData(props);
+        if(!data || data.weather[0].icon !== props.data.weather[0].icon
+          || data.temp.max !== props.data.temp.max){//Solo animamos si cambio de datos.
+          setData(props.data);
         }
       }, [props]);
   
   const animatedImage = imgTransition(
     (styles, item) => item && 
     <animated.div className="centerAbsolute100px" style={styles}>
-          <img src={"http://openweathermap.org/img/wn/" + item.icon + "@2x.png"} alt=""></img>
+          <img src={"http://openweathermap.org/img/wn/" + item.weather[0].icon + "@2x.png"} alt=""></img>
     </animated.div>
   );
 
   const animatedText = textTransition(
     (styles, item) => item && 
-    <animated.span  className="botomAbsolute" style={styles}>{item.description}</animated.span>
+    <animated.span  className="botomAbsolute" style={styles}>{item.temp.max}</animated.span>
   );
 
   return (<div className="margintopAuto flexStart flexGrow2" style={{width: props.size? props.size : 140,
@@ -55,4 +54,4 @@ const WeatherImage: React.FC<WeatherData> = (props) => {
 
 }
 
-export default WeatherImage;
+export default DailyWeather;

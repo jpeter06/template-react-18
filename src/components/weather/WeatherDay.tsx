@@ -9,7 +9,7 @@ import { useTransition, animated } from 'react-spring';
     size?:number;
   }
 
-const WeatherImage: React.FC<WeatherData> = (props) => {
+const WeatherDay: React.FC<WeatherData> = (props) => {
     const [data, setData] = useState(props);
     const imgTransition = useTransition(data, {
       from: {  opacity: 0  , transform: 'translate(64px, 0px)'},
@@ -48,11 +48,10 @@ const WeatherImage: React.FC<WeatherData> = (props) => {
             alignItems: 'center'}}>
              
             <div style={{ position: 'relative', height:'100px', width:'100%'}}>
-              {animatedImage}
-              {animatedText}
+
             </div>
           </div>)
 
 }
 
-export default WeatherImage;
+export default WeatherDay;

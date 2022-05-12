@@ -48,3 +48,6 @@ body .clear, #root.clear{ --main-background: #212121;   --main-color: #000000;
 .flexGrow2{  flex-grow: 21;}
 .marginLeftAuto{  margin-left: auto;}
 .margintopAuto {  margin-top: auto;}
+
+/** scroll **/
+.scrollHidden{ overflow: hidden;}
