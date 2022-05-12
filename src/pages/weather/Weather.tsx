@@ -7,10 +7,10 @@ import { DailyObj } from "../../objects/DailyObj";
 import { OneCallObj } from "../../objects/OneCallObj";
 import WeatherDays from "../../components/weather/weatherDays";
 
-var today  = new Date();
+const today  = new Date();
 
 console.log(today.toLocaleDateString("en-US")); // 9/17/2016
-
+const lugares = ['Almeria','Barcelona','Málaga','Madrid','Mehamn','Paris','Tokio'];
 class Weather extends React.Component<{}, { date: Date, city:string, weather:any, weekData?:OneCallObj,
                                              lat:number, lon:number, controller?:AbortController
                                              , controller2?:AbortController }> {
@@ -92,10 +92,17 @@ class Weather extends React.Component<{}, { date: Date, city:string, weather:any
     }
 
     updateLatLong = async () => {
+        const controller = this.getNewController();
+        const controller2 = this.getNewController2();
         const req = DataService.weather(this.state.lat, this.state.lon);
-        const res = await req;
-        this.setState({city:res.data.name, 
-                    weather: res.data})
+        req.then(res => {            
+            this.cancelController(); 
+            this.setState({city:res.data.name, weather: res.data});                
+            this.getOneCall(res.data.coord.lat, res.data.coord.lon, controller2);
+        })
+        .catch(function(e) { 
+            if(!controller.signal.aborted) 
+                console.debug('MaxMin error: ' + e.message ); });
     }
 
     getWeekBody(){
@@ -133,13 +140,11 @@ class Weather extends React.Component<{}, { date: Date, city:string, weather:any
             <div  className="page flexContentCenter flexStretch">
                 <h1 className="bigTitle hcenter titleColor">{this.state.city}</h1>
                 <div className="hcenter">
-                    <button className="mainButton" onClick={() => this.updateLatLong()}>local</button>
-                    <button className="mainButton" onClick={() => this.updateMaxMin('Paris')}>Paris</button>
-                    <button className="mainButton" onClick={() => this.updateMaxMin('Mehamn')}>Mehamn</button>
-                    <button className="mainButton" onClick={() => this.updateMaxMin('Málaga')}>Málaga</button>
-                    <button className="mainButton" onClick={() => this.updateMaxMin('Madrid')}>Madrid</button>
-                    <button className="mainButton" onClick={() => this.updateMaxMin('Barcelona')}>Barcelona</button>
-                    <button className="mainButton" onClick={() => this.updateMaxMin('Tokio')}>Tokio</button>
+                <button className="mainButton" onClick={() => this.updateLatLong()}>local</button>
+                    {lugares.map((lugar) => (
+                        <button className="mainButton" onClick={() => this.updateMaxMin(lugar)}>
+                            {lugar}</button>
+                    ))} 
                 </div>
                 {cuerpo}
             </div>

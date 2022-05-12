@@ -8,49 +8,49 @@ export interface WeatherImageSmallProps {
   className:String;
 }
 const DailyWeather: React.FC<WeatherImageSmallProps> = (props) => {
-    const [data, setData] = useState(props.data);
-    const imgTransition = useTransition(data, {
-      from: {  opacity: 0  , transform: 'translate(64px, 0px)'},
+  const [temp, setTemp] = useState(props.data.temp);
+  const [icon, setIcon] = useState(props.data.weather[0].icon);
+  const imgTransition = useTransition(icon, {
+      from: {  opacity: 0  , transform: 'translate(15px, 0px)'},
       enter: { opacity: 1 , transform: 'translate(0px, 0px)'},
-      leave: { opacity: 0 , transform: 'translate(-64px, 0px)'}
+      leave: { opacity: 0 , transform: 'translate(-15px, 0px)'}
     })
 
-    const textTransition = useTransition(data, {
-      from: {  opacity: 0  , transform: 'translate(20px, 0px)'},
+    const textTransition = useTransition(temp, {
+      from: {  opacity: 0  , transform: 'translate(0px, 0px)'},
       enter: { opacity: 1 , transform: 'translate(0px, 0px)'},
-      leave: { opacity: 0 , transform: 'translate(0px, 20px)'}
+      leave: { opacity: 0 , transform: 'translate(0px, 0px)'}
     })
     
     useEffect(() => {
-        if(!data || data.weather[0].icon !== props.data.weather[0].icon
-          || data.temp.max !== props.data.temp.max){//Solo animamos si cambio de datos.
-          setData(props.data);
-        }
-      }, [props]);
+      if(!icon || icon !== props.data.weather[0].icon){//Solo animamos si cambio de datos.
+        setIcon(props.data.weather[0].icon);
+      }
+      if(!temp  || temp.max !== props.data.temp.max){//Solo animamos si cambio de datos.
+        setTemp(props.data.temp);
+      }
+  }, [props]);
   
   const animatedImage = imgTransition(
     (styles, item) => item && 
     <animated.div className="centerAbsolute100px" style={styles}>
-          <img src={"http://openweathermap.org/img/wn/" + item.weather[0].icon + "@2x.png"} alt=""></img>
+          <img src={"http://openweathermap.org/img/wn/" + icon + "@2x.png"} alt=""></img>
     </animated.div>
   );
 
   const animatedText = textTransition(
     (styles, item) => item && 
-    <animated.span  className="botomAbsolute" style={styles}>{item.temp.max}</animated.span>
+    <animated.span  className="botomAbsolute" style={styles}>{Math.ceil(temp.max as number)}º / {Math.floor(temp.min as number)}º</animated.span>
   );
 
-  return (<div className="margintopAuto flexStart flexGrow2" style={{width: props.size? props.size : 140,
-            height: props.size? props.size : 140 ,display: 'flex', 
-            justifyContent: 'end',
-            flexDirection: 'column',
-            alignItems: 'center'}}>
-             
-            <div style={{ position: 'relative', height:'100px', width:'100%'}}>
+  return (             
+            <div style={{ position: 'relative', flexShrink: 0,
+              width: props.size? props.size : 140,
+              height: props.size? props.size : 140 }}>
               {animatedImage}
               {animatedText}
             </div>
-          </div>)
+          )
 
 }
 

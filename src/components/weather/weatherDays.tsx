@@ -10,10 +10,11 @@ interface MyProps  {
 const WeatherDays: React.FC<MyProps> = (props) => {
 
     return (
-        <div style={{ overflow: 'hidden', width: '100%',height: '110px'}}>
-          <div style={{ display: 'flex', overflowX: 'auto',  overflowY: 'hidden', width: '100%', paddingBottom: '15px'}}>
+        <div style={{ overflow: 'hidden', width: '100%',height: '120px'}}>
+          <div style={{ display: 'flex', overflowX: 'auto',  overflowY: 'hidden',
+           width: '100%', paddingBottom: '15px', justifyContent:'center'}}>
                {props.data.daily.map((data) => (
-               <DailyWeather className="margintopAuto" size={100} data={data}></DailyWeather>
+               <DailyWeather className="margintopAuto" size={110} data={data}></DailyWeather>
                 ))} 
           </div>
         </div>

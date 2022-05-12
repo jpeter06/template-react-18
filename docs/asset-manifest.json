@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.74418558.css",
-    "main.js": "/static/js/main.91b706ff.js",
+    "main.css": "/static/css/main.06d898a2.css",
+    "main.js": "/static/js/main.fd3fd803.js",
     "static/js/787.41a206eb.chunk.js": "/static/js/787.41a206eb.chunk.js",
-    "static/media/málaga.jpg": "/static/media/málaga.83d87562020a62a1a781.jpg",
+    "static/media/malaga.jpg": "/static/media/malaga.83d87562020a62a1a781.jpg",
     "index.html": "/index.html",
-    "main.74418558.css.map": "/static/css/main.74418558.css.map",
-    "main.91b706ff.js.map": "/static/js/main.91b706ff.js.map",
+    "main.06d898a2.css.map": "/static/css/main.06d898a2.css.map",
+    "main.fd3fd803.js.map": "/static/js/main.fd3fd803.js.map",
     "787.41a206eb.chunk.js.map": "/static/js/787.41a206eb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.74418558.css",
-    "static/js/main.91b706ff.js"
+    "static/css/main.06d898a2.css",
+    "static/js/main.fd3fd803.js"
   ]
 }

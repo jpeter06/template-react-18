@@ -15,8 +15,7 @@ body .clear, #root.clear{ --main-background: #212121;   --main-color: #000000;
                           --main-hover-color: #363636;  --main-transp-color: ##00000070;}
 
 /** ELEMENTS **/
-#root{  height: 100%;  display: flex;  flex-direction: column;
-  background-image: url("./images/málaga.jpg");
+.root{  height: 100%;  display: flex;  flex-direction: column;
   background-size: cover;
   color: var(--main-color);
   background-color: var(--main-background);}
