@@ -10,7 +10,7 @@ import WeatherDays from "../../components/weather/WeatherDays";
 const today  = new Date();
 
 console.log(today.toLocaleDateString("en-US")); // 9/17/2016
-const lugares = ['Almeria','Barcelona','Málaga','Madrid','Mehamn','Paris','Tokio'];
+const lugares = ['Almeria','Boadilla','Málaga','Madrid','Mehamn','Paris','Tokio'];
 class Weather extends React.Component<{}, { date: Date, city:string, weather:any, weekData?:OneCallObj,
                                              lat:number, lon:number, controller?:AbortController
                                              , controller2?:AbortController }> {

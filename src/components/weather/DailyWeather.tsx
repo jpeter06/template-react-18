@@ -34,7 +34,7 @@ const DailyWeather: React.FC<WeatherImageSmallProps> = (props) => {
   const animatedImage = imgTransition(
     (styles, item) => item && 
     <animated.div className="centerAbsolute100px" style={styles}>
-          <img src={"http://openweathermap.org/img/wn/" + icon + "@2x.png"} alt=""></img>
+          <img src={"https://openweathermap.org/img/wn/" + icon + "@2x.png"} alt=""></img>
     </animated.div>
   );
 
